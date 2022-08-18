@@ -1,0 +1,17 @@
+{
+  "name": "markcons",
+  "version": "0.0.1",
+  "description": "Icon components for marko",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "markojs",
+    "marko",
+    "icons",
+    "icon",
+    "svg"
+  ],
+  "author": "Hen2609",
+  "license": "APACHE-2.0"
+}

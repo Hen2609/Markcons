@@ -1,0 +1,13 @@
+{
+  "@prefix": {
+    "type": "string",
+    "default-value": "mdi"
+  },
+  "@icon": {
+    "type": "string",
+    "required": "true"
+  },
+  "@*": {
+    "type": "expression"
+  }
+}
