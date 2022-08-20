@@ -1,0 +1,29 @@
+{
+  "@icon": {
+    "type": "string",
+    "required": "true"
+  },
+  "@style": {
+    "type": "string",
+    "default-value": "outlined"
+  },
+  "@width": {
+    "type": "number",
+    "default-value": "0"
+  },
+  "@grade": {
+    "type": "number",
+    "default-value": "0"
+  },
+  "@fill": {
+    "type": "boolean",
+    "default-value": "false"
+  },
+  "@size": {
+    "type": "number",
+    "default-value": "48"
+  },
+  "@*": {
+    "type": "expression"
+  }
+}
