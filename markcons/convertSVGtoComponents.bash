@@ -7,10 +7,11 @@ idx=0
 for file in $files
 do
     idx=$((${idx}+1))
-    directory=`dirname $file`
-    newName="${directory}/index.marko"
-    mv $file $newName
-    sed -i '1s/>/ ...input>/' $newName
+    fileName="${file%.svg}.marko"
+    mv $file $fileName
+    sed -i 's/</$ const {title, description, ...otherAttrs} = input; \n</' $fileName
+    sed -i 's/>/ ...otherAttrs>\n<title>${title}<\/title>\n<description>${description}<\/description>\n/' $fileName
     progress=$(echo "scale=4;(${idx}*100/${num_of_files})" | bc)
     echo -ne "finished: ${progress}%\r"
 done
+

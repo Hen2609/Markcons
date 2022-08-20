@@ -1,0 +1,5 @@
+import getPath from "./pathUtill.js";
+$ const { icon, style, width, grade, fill, size, ...otherAttrs } = input;
+$ let Icon = import(getPath(icon, style, width, grade, fill, size));
+
+<${Icon} ...otherAttrs/>
