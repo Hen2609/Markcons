@@ -1,0 +1,17 @@
+$ const { icon, iconStyle, fill, title, description, ...otherAttrs } = input
+$ console.log('2',input)
+static function importIconPath(style, fill, icon) {
+    let result = `./components/${style}-`
+    if(fill){
+        result += `fill-`
+    }
+    result += `${icon}.marko`
+    console.log('res',result)
+    return result
+}
+$ const iconPromise = import(importIconPath(iconStyle,fill,icon));
+<await(iconPromise)>
+    <@then|iconComponent|>
+        <${iconComponent}/>
+    </@then>
+</await>

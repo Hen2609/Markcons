@@ -1,4 +1,6 @@
-$ const { prefix, ...otherAttrs } = input;
+$ const { prefix, icon, ...otherAttrs } = input
 <if(prefix === "mdi")>
-    <markon-mdi ...otherAttrs/>
+    $ let iconStyle = otherAttrs?.iconStyle
+    $ iconStyle = iconStyle ? iconStyle : "outlined"
+    <markcons-mdi icon=icon iconStyle=iconStyle ...otherAttrs/>
 </if>

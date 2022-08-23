@@ -1,0 +1,22 @@
+{
+  "@icon": {
+    "type": "string",
+    "required": "true"
+  },
+  "@iconStyle": {
+    "type": "string",
+    "default-value": "outlined"
+  },
+  "@fill": {
+    "type": "boolean"
+  },
+  "@title": {
+    "type": "string"
+  },
+  "@description": {
+    "type": "string"
+  },
+  "@*": {
+    "type": "expression"
+  }
+}

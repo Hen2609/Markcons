@@ -9,8 +9,8 @@ do
     idx=$((${idx}+1))
     fileName="${file%.svg}.marko"
     mv $file $fileName
-    sed -i 's/</$ const {title, description, ...otherAttrs} = input; \n</' $fileName
-    sed -i 's/>/ ...otherAttrs>\n<title>${title}<\/title>\n<description>${description}<\/description>\n/' $fileName
+    gsed -i 's/</$ const {title, description, ...otherAttrs} = input; \n</' $fileName
+    gsed -i 's/>/ ...otherAttrs>\n<title>${title}<\/title>\n<description>${description}<\/description>\n/' $fileName
     progress=$(echo "scale=4;(${idx}*100/${num_of_files})" | bc)
     echo -ne "finished: ${progress}%\r"
 done

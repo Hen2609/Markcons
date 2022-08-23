@@ -32,10 +32,12 @@ getRegexPath () {
     fi
 }
 
-
-for iconFolder in ./material-design-icons/*
+componentsPath="./markcons/components/${TARGET}/components";
+mkdir -p ${componentsPath}
+for iconFolder in ./material-design-icons/* 
 do 
     iconPath="${iconFolder}/*"
+    iconName="${iconFolder##*/}"
     for iconStyle in ${iconPath}
     do
         svgPath="${iconStyle}/*"
@@ -43,56 +45,73 @@ do
         if [[ $style = $OUTLINED ]]; then prefix="outlined"; fi
         if [[ $style = $ROUNDED ]]; then prefix="rounded"; fi
         if [[ $style = $SHARP ]]; then prefix="sharp"; fi
-        for iconSvg in ${svgPath}
+        files=$( find ${svgPath} -type f -name '*24px.svg' | grep -v wght | grep -v grad )
+        for file in $files
         do
-            fileName="${iconSvg##*/}"
-            weightString=${fileName%%"_wght"*}
-            gradeString=${fileName%%"_grad"*}
-            fillString=${fileName%%"_fill"*}
-            sizeString=${fileName%%"_"*"px"}
-            weightIndex=${#weightString}
-            gradeIndex=${#gradeString}
-            fillIndex=${#fillString}
-            sizeIndex=${#sizeString}
-            fileNameLength=${#fileName}
-            name="null"
-            if [[ weightIndex -ne fileNameLength ]]
-            then
-                # substring=${fileName:${weightIndex}}
-                name=${fileName:0:${weightIndex}}
-                # getRegexPath $substring
-                # relativePath+=$path"/${name}"
-            elif [[ gradeIndex -ne fileNameLength ]]
-            then 
-                # substring=${fileName:${gradeIndex}}
-                name=${fileName:0:${gradeIndex}}
-                # getRegexPath $substring
-                # relativePath+=$path"/${name}"
-            elif [[ fillIndex -ne fileNameLength ]]
-            then
-                # substring=${fileName:${fillIndex}}
-                name=${fileName:0:${fillIndex}}
-                # getRegexPath $substring
-                # relativePath+=$path"/${name}"
-            else
-                if [[ $fileName =~ $SIZE_REGEX ]]
-                then
-                    name=${BASH_REMATCH[1]} #first match equals name, second match equals size
-                else
-                    echo "Failed to extract data"
-                fi
-            fi
-            if [[ ${name} = 'null' ]]
-            then
-                echo "Failed To Calculate Name"
-            else
-                relativePath="./markcons/componenets/${TARGET}/${name}/${prefix}/${ffileName}"
-                echo ${fileName}
-                echo ${relativePath}
-                mkdir -p ${relativePath}
-                cp $iconSvg "$_"
-                echo --------------------------------------------
-            fi
-        done    
+            if [[ $file =~ .*"fill1_24px.svg" ]]; then fillPath="-fill"; else fillPath=""; fi
+            componentPath="${componentsPath}/${prefix}${fillPath}-${iconName}.svg"
+            cp $file $componentPath
+            echo $componentPath
+        done
     done
-done
+done     
+# for iconFolder in 
+# do 
+#     iconPath="${iconFolder}/*"
+#     for iconStyle in ${iconPath}
+#     do
+#         svgPath="${iconStyle}/*"
+#         style="${iconStyle##*/}" 
+#         if [[ $style = $OUTLINED ]]; then prefix="outlined"; fi
+#         if [[ $style = $ROUNDED ]]; then prefix="rounded"; fi
+#         if [[ $style = $SHARP ]]; then prefix="sharp"; fi
+#         for iconSvg in ${svgPath}
+#         do
+#             relativePath="./markcons/components/${TARGET}/${prefix}"
+#             fileName="${iconSvg##*/}"
+#             echo $fileName
+#             weightString=${fileName%%"_wght"*}
+#             gradeString=${fileName%%"_grad"*}
+#             fillString=${fileName%%"_fill"*}
+#             sizeString=${fileName%%"_"*"px"}
+#             weightIndex=${#weightString}
+#             gradeIndex=${#gradeString}
+#             fillIndex=${#fillString}
+#             sizeIndex=${#sizeString}
+#             fileNameLength=${#fileName}
+#             name="null"
+#             size="0"
+#             if [[ weightIndex -ne fileNameLength ]] || [[ gradeIndex -ne fileNameLength ]]
+#             then
+#                 #do nothing, skip
+#                 continue
+#             elif [[ fillIndex -ne fileNameLength ]]
+#             then
+#                 # substring=${fileName:${fillIndex}}
+#                 name=${fileName:0:${fillIndex}}
+#                 relativePath+="/fill"
+#                 # getRegexPath $substring
+#                 # relativePath+=$path"/${name}"
+#             elif [[ sizeIndex -ne  fileNameLength ]]
+#             then
+#                 substring=${fileName:${sizeIndex}}
+#                 size=${fileName:${sizeIndex}:2}
+#             else 
+#                 echo "File doesn't contain fill nor size"
+#             fi
+#             echo $name -- name
+#             echo $relativePath
+#             if [[ ${name} = 'null' ]]
+#             then
+#                 echo "Failed To Calculate Name"
+#             else
+#                 relativePath+="/${name}/${filename}"
+#                 echo ${fileName}
+#                 echo ${relativePath}
+#                 # mkdir -p ${relativePath}
+#                 # cp $iconSvg "$_"
+#                 echo --------------------------------------------
+#             fi
+#         done    
+#     done
+# done
