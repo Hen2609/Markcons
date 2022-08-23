@@ -8,4 +8,4 @@ currently there is one icon type mdi, which is also the default.
 # icon types
 ## MDI
 material design icons, compatible with https://fonts.google.com/icons
-usage: `<markcons prefix="mdi" icon="icon name" fill=true iconStyle="sharp"/>
+usage: `<markcons prefix="mdi" icon="icon name" fill=true iconStyle="sharp"/>`
