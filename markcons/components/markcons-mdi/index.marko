@@ -12,6 +12,6 @@ static function importIconPath(style, fill, icon) {
 $ const iconPromise = import(importIconPath(iconStyle,fill,icon));
 <await(iconPromise)>
     <@then|iconComponent|>
-        <${iconComponent}/>
+        <${iconComponent} ...otherAttrs/>
     </@then>
 </await>
