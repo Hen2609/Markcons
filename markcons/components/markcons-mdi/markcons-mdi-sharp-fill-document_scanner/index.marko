@@ -1,4 +1,5 @@
-$ const { ...otherAttrs } = input
+$ const { title, desc, ...otherAttrs } = input
 <baseSVG ...otherAttrs>
+<title>${title}</title><desc>${desc}</desc>
 <path d="M2 6V1H7V3H4V6ZM20 6V3H17V1H22V6ZM2 23V18H4V21H7V23ZM17 23V21H20V18H22V23ZM5 20V4H19V20ZM9 10H15V8H9ZM9 13H15V11H9ZM9 16H15V14H9Z"/>
 </baseSVG>

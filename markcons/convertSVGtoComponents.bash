@@ -10,8 +10,9 @@ do
     fileName="${file%.svg}.marko"
     mv $file $fileName
     cat $fileName | python3 strip_svg.py > tmp
-    echo "\$ const { ...otherAttrs } = input" > $fileName
+    echo "\$ const { title, desc, ...otherAttrs } = input" > $fileName
     echo "<baseSVG ...otherAttrs>" >> $fileName
+    echo "<title>\${title}</title><desc>\${desc}</desc>" >> $fileName
     cat tmp >> $fileName
     echo "</baseSVG>" >> $fileName
     progress=$(echo "scale=4;(${idx}*100/${num_of_files})" | bc)

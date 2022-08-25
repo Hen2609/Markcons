@@ -12,16 +12,17 @@ npm install markcons
 ```
 
 ## Usage
-each icon library defines it's own behivor, the common factor is the `<markcon-*>` tag prefix
-currently included icon pakcages:
+Each icon library defines it's own behivor, the common factor is the `<markcon-*>` tag prefix.
+Each Icon aceepts two common attributes for accessiblity: title and desc 
+Currently included icon pakcages:
 | Icon Package | Icon Prefix |
 | ------ | ------ |
 | Material Design Icons | `<markcons-mdi-*>` |
 
-styling is done by css or inline attributes, all icons include the class: `.markcons`
+Styling is done by css or inline attributes, all icons include the class: `.markcons`
 
 ### Material Design Icons
-template: `<markcons-mdi-{style}-{fill}-{name}/>`
+Template: `<markcons-mdi-{style}-{fill}-{name}/>`
 Go to [Google Fonts Icons](https://fonts.google.com/icons) and choose your desired icon and fill the template.
 | Icon | Icon Component |
 | ------ | ------ |

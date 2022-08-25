@@ -30,7 +30,6 @@ do
             mkdir -p $folderPath
             svgPath="${folderPath}/index.svg"
             cp $file $svgPath
-            echo -ne "finished: ${idx}\r"
         done
     done
 done        
