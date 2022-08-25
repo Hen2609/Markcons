@@ -1,0 +1,19 @@
+$ const { renderBody, class: classes, ...otherAttrs } = input
+<svg
+  focusable="false" /* <svg> is focusable by default for some reason in IE and EdgeHTML */
+  width="1.5em" height="1.5em"
+  ...otherAttrs
+  class=['markcons', classes]
+>
+  <${renderBody}/>
+</svg>
+
+style {
+  .markcons {
+    flex-shrink: 0 !important;
+    vertical-align: middle; /* Align with center of surrounding text's x-height */
+    line-height: 0.8; /* But don’t increase that text’s bounding box! */
+  }
+}
+
+//Thanks to Tigt from the marko team for the base SVG :) 

@@ -1,6 +1,6 @@
 #!/bin/bash
 #get all svg files in the components folder
-files=$(find . -type f | grep .svg )        
+files=$(find ./components/ -type f | grep .svg )        
 num_of_files=$(echo ${files} | wc -w)
 echo "Number of SVGs: " $num_of_files
 idx=0
@@ -9,9 +9,13 @@ do
     idx=$((${idx}+1))
     fileName="${file%.svg}.marko"
     mv $file $fileName
-    gsed -i 's/</$ const {title, description, ...otherAttrs} = input; \n</' $fileName
-    gsed -i 's/>/ ...otherAttrs>\n<title>${title}<\/title>\n<description>${description}<\/description>\n/' $fileName
+    cat $fileName | python3 strip_svg.py > tmp
+    echo "\$ const { ...otherAttrs } = input" > $fileName
+    echo "<baseSVG ...otherAttrs>" >> $fileName
+    cat tmp >> $fileName
+    echo "</baseSVG>" >> $fileName
     progress=$(echo "scale=4;(${idx}*100/${num_of_files})" | bc)
     echo -ne "finished: ${progress}%\r"
 done
+rm tmp
 

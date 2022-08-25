@@ -1,0 +1,4 @@
+{
+  "taglib-id": "markcons",
+  "taglib-imports": ["./components/markcons-mdi/marko.json"]
+}
