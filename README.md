@@ -18,6 +18,8 @@ currently included icon pakcages:
 | ------ | ------ |
 | Material Design Icons | `<markcons-mdi-*>` |
 
+styling is done by css or inline attributes, all icons include the class: `.markcons`
+
 ### Material Design Icons
 template: `<markcons-mdi-{style}-{fill}-{name}/>`
 Go to [Google Fonts Icons](https://fonts.google.com/icons) and choose your desired icon and fill the template.
@@ -25,6 +27,8 @@ Go to [Google Fonts Icons](https://fonts.google.com/icons) and choose your desir
 | ------ | ------ |
 | outlined arrow forwared | `<markcons-mdi-outlined-arrow_forward>` |
 | outlined arrow forwared  filled | `<markcons-mdi-outlined-fill-arrow_forward>` |
+
+Icons are inline svg 
 
 ## License
 > Note: the license is apache and not mit because of the google license
