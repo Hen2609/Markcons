@@ -10,8 +10,9 @@ do
     fileName="${file%.svg}.marko"
     mv $file $fileName
     cat $fileName | python3 strip_svg.py > tmp
+    viewBox=`grep -Eo 'viewBox=".*?"' ${fileName}`
     echo "\$ const { title, desc, ...otherAttrs } = input" > $fileName
-    echo "<baseSVG ...otherAttrs>" >> $fileName
+    echo "<baseSVG ${viewBox} ...otherAttrs>" >> $fileName
     echo "<title>\${title}</title><desc>\${desc}</desc>" >> $fileName
     cat tmp >> $fileName
     echo "</baseSVG>" >> $fileName

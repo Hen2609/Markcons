@@ -18,6 +18,8 @@ Currently included icon pakcages:
 | Icon Package | Icon Prefix |
 | ------ | ------ |
 | Material Design Icons | `<markcons-mdi-*>` |
+| Free Font Awesome 6 Icons | `<markcons-fa-*>` |
+
 
 Styling is done by css or inline attributes, all icons include the class: `.markcons`
 
@@ -28,6 +30,18 @@ Go to [Google Fonts Icons](https://fonts.google.com/icons) and choose your desir
 | ------ | ------ |
 | outlined arrow forwared | `<markcons-mdi-outlined-arrow_forward>` |
 | outlined arrow forwared  filled | `<markcons-mdi-outlined-fill-arrow_forward>` |
+
+Icons are inline svg 
+
+### Font Awesome 6
+Template: `<markcons-fa-{type}-{name}/>`
+Go to [Font Awesome Icons](https://fontawesome.com/icons) search for your icon, make sure to filter only free icons.
+once you choose your icon a pop will come up with html code which needs to be transalted to a component name.  
+in the above example the type is brand, and the name is waze.
+| Icon | Font Awesome |Icon Component |
+| ------ | ------ | ------ |
+| waze | `<i class="fa-brands fa-waze"></i>` |`<markcons-fa-brands-waze>` |
+| warehouse| `<i class="fa-solid fa-warehouse"></i>` | `<markcons-fa-solid-warehouse>` |
 
 Icons are inline svg 
 

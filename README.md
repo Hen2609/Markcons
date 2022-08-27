@@ -12,21 +12,36 @@ npm install markcons
 ```
 
 ## Usage
-each icon library defines it's own behivor, the common factor is the `<markcon-*>` tag prefix
-currently included icon pakcages:
+Each icon library defines it's own behivor, the common factor is the `<markcon-*>` tag prefix.
+Each Icon aceepts two common attributes for accessiblity: title and desc 
+Currently included icon pakcages:
 | Icon Package | Icon Prefix |
 | ------ | ------ |
 | Material Design Icons | `<markcons-mdi-*>` |
+| Free Font Awesome 6 Icons | `<markcons-fa-*>` |
 
-styling is done by css or inline attributes, all icons include the class: `.markcons`
+
+Styling is done by css or inline attributes, all icons include the class: `.markcons`
 
 ### Material Design Icons
-template: `<markcons-mdi-{style}-{fill}-{name}/>`
+Template: `<markcons-mdi-{style}-{fill}-{name}/>`
 Go to [Google Fonts Icons](https://fonts.google.com/icons) and choose your desired icon and fill the template.
 | Icon | Icon Component |
 | ------ | ------ |
 | outlined arrow forwared | `<markcons-mdi-outlined-arrow_forward>` |
 | outlined arrow forwared  filled | `<markcons-mdi-outlined-fill-arrow_forward>` |
+
+Icons are inline svg 
+
+### Font Awesome 6
+Template: `<markcons-fa-{type}-{name}/>`
+Go to [Font Awesome Icons](https://fontawesome.com/icons) search for your icon, make sure to filter only free icons.
+once you choose your icon a pop will come up with html code which needs to be transalted to a component name.  
+in the above example the type is brand, and the name is waze.
+| Icon | Font Awesome |Icon Component |
+| ------ | ------ | ------ |
+| waze | `<i class="fa-brands fa-waze"></i>` |`<markcons-fa-waze>` |
+| warehouse| `<i class="fa-solid fa-warehouse"></i>` | `<markcons-fa-solid-warehouse>` |
 
 Icons are inline svg 
 
